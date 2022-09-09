@@ -48,7 +48,7 @@ async function runScript() {
         });
 
 
-        //await driver.findElement(B)
+       console.log(board2)
 
 
     }
