@@ -35,10 +35,6 @@
     "icon_url": "https://app.thousandeyes.com/static/images/logo_128x128.png"
 }
 
-{
-"roomId" : "Y2lzY29zcGFyazovL3VzL1JPT00vNmE5NThhZDAtYzY2My0xMWVjLThmNDEtNDMzODNmNGNkZGNl",
-"markdown" : "<strong>ThousandEyes Alert{{#eq type.id 2}} Triggered{{else}} Cleared{{/eq}}{{#if alert.test}} for {{alert.test.name}}{{/if}}</strong>\n<strong>Alert ID:</strong> {{alert.id}}{{#if alert.test}}\n<strong>Test Name:</strong> {{alert.test.name}}\n<strong>Target/s:</strong> {{#each alert.targets}}{{description}}{{#unless @last}} {{/unless}}{{/each}}{{/if}}\n<strong>Alert Rule:</strong> {{alert.rule.name}} - {{formatExpression alert.rule.expression}}{{#if alert.details}}\n<strong>Details:</strong> {{alert.details.size}}{{/if}}\n<strong>Severity:</strong> {{alert.severity.display}}\n<strong>Alerts Link:</strong> https://app.thousandeyes.com/alerts/list/active"
-}
 
 
 Alert{{#eq type.id 2}} Triggered{{else}} Cleared{{/eq}}{{#if alert.test}} for {{alert.test.name}}{{/if}}</strong>\n<strong>Alert ID:</strong> {{alert.id}}{{#if alert.test}}\n<strong>Test Name:</strong> {{alert.test.name}}\n<strong>Target/s:</strong> {{#each alert.targets}}{{description}}{{#unless @last}} {{/unless}}{{/each}}{{/if}}\n<strong>Alert Rule:</strong> {{alert.rule.name}} - {{formatExpression alert.rule.expression}}{{#if alert.details}}\n<strong>Details:</strong> {{alert.details.size}}{{/if}}\n<strong>Severity:</strong> {{alert.severity.display}}\n<strong>Alerts Link:</strong> https://app.thousandeyes.com/alerts/list/active"
@@ -82,7 +78,7 @@ working2 = "text": "*Target/s*: {{#each alert.targets}}{{description}}{{#unless 
 ]
 {
 "id": 146,
-"target": "https://hooks.slack.com/services/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",
+"target": "",
 "name": "Slackv3",
 "authType": 0,
 "payload": "\n{\n \"channel\": \"#ai-notifications-dev\",\n \"attachments\": [{\n {{#eq type.id 2}}\n \"color\":
