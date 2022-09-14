@@ -1,0 +1,102 @@
+{
+    "channel": "#challenge-7",
+    "attachments": [
+        {
+            {
+                {#eq type.id 2
+                }
+            }
+        "color": "danger",
+            {
+                {else
+                }
+            }
+        "color": "good",
+            {
+                {/eq
+                }
+            }
+        "title": "Alert{{#eq type.id 2}} Triggered{{else}} Cleared{{/eq}}",
+            "title_link": "https://app.thousandeyes.com/alerts/list/active",
+            "fallback": "ThousandEyes Alert",
+            "text": "*Alert ID*: {{alert.id}}{{#if alert.test}}\n*Test Name*: {{alert.test.name}}\n*Target/s*: {{#each alert.targets}}{{description}}{{#unless @last}}, {{/unless}}{{/each}}{{/if}}\n*Alert Rule*: {{alert.rule.name}} - {{formatExpression alert.rule.expression}}{{#if alert.details}}\n*Details*: {{alert.details.size}}{{/if}}-{{#if alert.details}}\n*Source*: {{alert.details.source.name}}{{/if}}",
+            "mrkdwn_in": [
+                "text"
+            ],
+            "ts": {
+                {alert.firstSeen.epochMilli
+                }
+            },
+            "footer": "ThousandEyes Alerts",
+            "footer_icon": "https://app.thousandeyes.com/static/images/logo_128x128.png"
+        }
+    ],
+    "username": "hheisego@thousandeyes.com",
+    "icon_url": "https://app.thousandeyes.com/static/images/logo_128x128.png"
+}
+
+{
+"roomId" : "Y2lzY29zcGFyazovL3VzL1JPT00vNmE5NThhZDAtYzY2My0xMWVjLThmNDEtNDMzODNmNGNkZGNl",
+"markdown" : "<strong>ThousandEyes Alert{{#eq type.id 2}} Triggered{{else}} Cleared{{/eq}}{{#if alert.test}} for {{alert.test.name}}{{/if}}</strong>\n<strong>Alert ID:</strong> {{alert.id}}{{#if alert.test}}\n<strong>Test Name:</strong> {{alert.test.name}}\n<strong>Target/s:</strong> {{#each alert.targets}}{{description}}{{#unless @last}} {{/unless}}{{/each}}{{/if}}\n<strong>Alert Rule:</strong> {{alert.rule.name}} - {{formatExpression alert.rule.expression}}{{#if alert.details}}\n<strong>Details:</strong> {{alert.details.size}}{{/if}}\n<strong>Severity:</strong> {{alert.severity.display}}\n<strong>Alerts Link:</strong> https://app.thousandeyes.com/alerts/list/active"
+}
+
+
+Alert{{#eq type.id 2}} Triggered{{else}} Cleared{{/eq}}{{#if alert.test}} for {{alert.test.name}}{{/if}}</strong>\n<strong>Alert ID:</strong> {{alert.id}}{{#if alert.test}}\n<strong>Test Name:</strong> {{alert.test.name}}\n<strong>Target/s:</strong> {{#each alert.targets}}{{description}}{{#unless @last}} {{/unless}}{{/each}}{{/if}}\n<strong>Alert Rule:</strong> {{alert.rule.name}} - {{formatExpression alert.rule.expression}}{{#if alert.details}}\n<strong>Details:</strong> {{alert.details.size}}{{/if}}\n<strong>Severity:</strong> {{alert.severity.display}}\n<strong>Alerts Link:</strong> https://app.thousandeyes.com/alerts/list/active"
+
+
+working1 = "text": "*Alert ID*: {{alert.id}}{{#if alert.test}}\n*Test Name*: {{alert.test.name}}\n*Target/s*: {{#each alert.targets}}{{description}}{{#unless @last}}, {{/unless}}{{/each}}{{/if}}\n*Alert Rule*: {{alert.rule.name}} - {{formatExpression alert.rule.expression}}{{#if alert.details}}\n*Details*: {{alert.details.size}}{{/if}}{{#if alert.details.source}}\n*Source*:{{alert.details.source.name}}{{/if}}",
+
+
+
+
+
+
+
+
+
+working3 = "text": "{{#if alert.details.size}} \n*Agent Name*: {{#each alert.details}}{{source.name}}{{#unless @last}} \n*Agent Name*: {{alert.id}}{{/unless}}{{/each}}{{/if}}\n*Alert ID*: {{alert.id}}{{#if alert.test}} \n*Test Name*: {{alert.test.name}} \n*TestID*: {{alert.test.id}}{{/if}}{{#each alert.details}}\n*Name*: {{source.name}}\n*MetricsAtStart*: {{metricsAtStart}}{{#if metricsAtEnd}}\n*MetricsAtEnd*: {{metricsAtEnd}}{{/if}}{{/each}}",
+
+
+
+
+
+final = "text": " {{#if alert.details.size}}{{#each alert.details}}\n*Agent Name*: {{source.name}}\n*Alert ID*: {{alert.id}}{{#if alert.test}}\n*Test Name*: {{alert.test.name}} \n*TestID*: {{alert.test.id}}{{/if}}\n*Condition-Start*: {{metricsAtStart}}{{#if metricsAtEnd}}\n*Conditiond-End*: {{metricsAtEnd}}{{/if}}{{#unless @last}}\n {{/unless}}{{/each}}{{/if}}",
+
+
+
+
+
+
+
+
+
+
+working2 = "text": "*Target/s*: {{#each alert.targets}}{{description}}{{#unless @last}}, {{/unless}}{{/each}}{{/if}}\n*Alert Rule*: {{alert.rule.name}} - {{formatExpression alert.rule.expression}}{{#if alert.details}}\n*Details*: {{alert.details.size}}{{/if}}{{#if alert.details.source}}{{#unless alert.details.size 0}} \nSource: {{#each alert.details.source}}{{name}}{{#unless @last}}, {{/unless}}{{/each}} {{/unless}}", 
+{{#unless alert.details.size 0}}
+"Source": "{{#each alert.details.source}}{{name}}{{#unless @last}}, {{/unless}}{{/each}}"
+{{/unless}}
+
+
+
+
+]
+{
+"id": 146,
+"target": "https://hooks.slack.com/services/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",
+"name": "Slackv3",
+"authType": 0,
+"payload": "\n{\n \"channel\": \"#ai-notifications-dev\",\n \"attachments\": [{\n {{#eq type.id 2}}\n \"color\":
+\"danger\",\n {{else}}\n \"color\": \"good\",\n {{/eq}}\n \"title\": \"Alert{{#eq type.id 2}} Triggered{{else}}
+Cleared{{/eq}}{{#if alert.test}} for {{alert.test.name}}{{/if}}\",\n \"title_link\":
+\"https://app.thousandeyes.com/alerts/list/active\",\n \"fallback\": \"ThousandEyes Alert\",\n \"text\": \"*Alert ID*:
+{{alert.id}}{{#if alert.test}}\\n*Test Name*: {{alert.test.name}}\\n*Target/s*: {{#each
+alert.targets}}{{description}}{{#unless @last}}, {{/unless}}{{/each}}{{/if}}\\n*Alert Rule*: {{alert.rule.name}} -
+{{alert.rule.expression}}{{#if alert.scope}}\\n*Scope*: {{alert.scope.size}}{{/if}}\\n* ---Agents---* {{#each
+alert.scope}}\\n*Name*: {{source.name}}\\n*MetricsAtStart*: {{metricsAtStart}}{{#if metricsAtEnd}}\\n*MetricsAtEnd*:
+{{metricsAtEnd}}{{/if}}{{/each}}\",\n \"mrkdwn_in\": [ \"text\" ],\n \"ts\": {{alert.firstSeen.epochMilli}},\n
+\"footer\": \"ThousandEyes Alerts\",\n \"footer_icon\":
+\"https://app.thousandeyes.com/static/images/logo_128x128.png\"\n }],\n \"username\": \"ThousandEyes\",\n \"icon_url\":
+\"https://app.thousandeyes.com/static/images/logo_128x128.png\"\n}\n",
+"type": 7
+}
+]
